@@ -14,13 +14,14 @@ import VueToast from 'vue2-toast'
 Vue.use(VueToast, {
   defaultType: 'center'
 })
+
 Vue.use(Vuex)
 Vue.use(ElementUI)
 
 // 默认设置axios请求
 // axios.default.baseUrl = 'http://localhost:3000/'  //设置默认请求的前缀
 axios.defaults.withCredentials = true 
-global.axios = axios 
+global.axios = axios  
 
 // Vue.prototype.$http = axios //在vue的原型链上添加axios
 Vue.config.productionTip = false
