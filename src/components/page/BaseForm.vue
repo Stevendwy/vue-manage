@@ -1,6 +1,5 @@
 <template>
     <div>
-        <h2>显示什么呢</h2>
         <div class="crumbs">
             <el-breadcrumb separator="/">
                 <el-breadcrumb-item><i class="el-icon-date"></i> 表单</el-breadcrumb-item>

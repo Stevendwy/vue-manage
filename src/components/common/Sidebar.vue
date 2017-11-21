@@ -1,12 +1,6 @@
 <template>
     <div class="sidebar">
-        <el-menu :default-active="onRoutes" 
-                class="el-menu-vertical-demo"
-                background-color= "#242f42"
-                text-color="#fff"
-                active-text-color="#ffd04b" 
-                unique-opened 
-                router>
+        <el-menu :default-active="onRoutes" class="el-menu-vertical-demo" theme="dark" unique-opened router>
             <template v-for="item in items">
                 <template v-if="item.subs">
                     <el-submenu :index="item.index">
@@ -41,12 +35,8 @@
                         title: '表格',
                         subs: [
                             {
-                                index: 'changepwd',
+                                index: 'basetable',
                                 title: '基础表格'
-                            },
-                            {
-                                index: 'vuetable',
-                                title: 'Vue表格组件'
                             }
                         ]
                     },
