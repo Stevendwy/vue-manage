@@ -1,6 +1,6 @@
 <template>
     <div class="login-wrap">
-        <div class="ms-title">后台管理系统</div>
+        <div class="ms-title">Boss 管理系统</div>
         <div class="ms-login">
             <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="0px" class="demo-ruleForm">
                 <el-form-item prop="username">
@@ -12,7 +12,7 @@
                 <div class="login-btn">
                     <el-button type="primary" @click="submitForm('ruleForm')">登录</el-button>
                 </div>
-                <p style="font-size:12px;line-height:30px;color:#999;">Tips : 用户名和密码随便填。</p>
+                <!-- <p style="font-size:12px;line-height:30px;color:#999;">Tips : 用户名和密码随便填。</p> -->
             </el-form>
         </div>
     </div>
@@ -21,6 +21,28 @@
 <script>
     export default {
         data: function(){
+            let checkUsername = (rule, value, callback) => {
+                    if (value === '') {
+                        callback(new Error('请输入用户名'))
+                    } else {
+                        if (value == 'steven') {
+                            callback();
+                        }else{
+                            callback(new Error('用户名错误'))
+                        }
+                    }
+                };
+            let checkPassword = (rule, value, callback) => {
+                    if (value === '') {
+                        callback(new Error('请输入密码'));
+                    } else {
+                        if (value == 'aa123456') {
+                            callback();
+                        }else{
+                            callback(new Error('密码错误'))
+                        }
+                    }
+                };
             return {
                 ruleForm: {
                     username: '',
@@ -28,10 +50,10 @@
                 },
                 rules: {
                     username: [
-                        { required: true, message: '请输入用户名', trigger: 'blur' }
+                        { validator: checkUsername,  trigger: 'blur' }
                     ],
                     password: [
-                        { required: true, message: '请输入密码', trigger: 'blur' }
+                        { validator: checkPassword, trigger: 'blur' }
                     ]
                 }
             }
